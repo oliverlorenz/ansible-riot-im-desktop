@@ -9,6 +9,7 @@
 - get_url:
     url: https://packages.riot.im/debian/riot-im-archive-keyring.gpg
     dest: /usr/share/keyrings/riot-im-archive-keyring.gpg
+  become: yes
 
 - apt_repository:
     repo: deb [signed-by=/usr/share/keyrings/riot-im-archive-keyring.gpg] https://packages.riot.im/debian/ {{ ansible_distribution_release }} main
