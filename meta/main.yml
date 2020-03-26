@@ -1,0 +1,5 @@
+galaxy_info:
+  author: Oliver Lorenz
+  description: installs riot.im desktop app
+  license: MIT
+  min_ansible_version: 2.9

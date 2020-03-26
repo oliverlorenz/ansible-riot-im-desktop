@@ -1,0 +1,11 @@
+# https://github.com/drduh/YubiKey-Guide#ssh
+- apt:
+    pkg:
+    - lsb-release 
+    - wget 
+    - apt-transport-https
+  become: yes
+
+- apt_key:
+    url: https://packages.riot.im/debian/riot-im-archive-keyring.gpg
+    state: present
