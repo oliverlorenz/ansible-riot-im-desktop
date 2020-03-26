@@ -4,17 +4,20 @@
     - lsb-release 
     - wget 
     - apt-transport-https
+  become: yes
 
 - apt_key:
     url: https://packages.riot.im/riot-release-key.asc
     state: present
+  become: yes
 
 - apt_repository:
     repo: deb https://packages.riot.im/debian/ {{ ansible_distribution_release }} main
     filename: riot-im
     state: present
+  become: yes
 
 - apt:
     pkg:
     - riot-web
-    update_cache: yes
+  become: yes
