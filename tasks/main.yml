@@ -6,14 +6,13 @@
     - apt-transport-https
   become: yes
 
-- apt_key:
-    url: https://packages.riot.im/riot-release-key.asc
-    state: present
-  become: yes
+- get_url:
+    url: https://packages.riot.im/debian/riot-im-archive-keyring.gpg
+    dest: /usr/share/keyrings/riot-im-archive-keyring.gpg
 
 - apt_repository:
-    repo: deb https://packages.riot.im/debian/ {{ ansible_distribution_release }} main
-    filename: riot-im
+    repo: deb [signed-by=/usr/share/keyrings/riot-im-archive-keyring.gpg] https://packages.riot.im/debian/ {{ ansible_distribution_release }} main
+    filename: riot-im.list
     state: present
   become: yes
 
