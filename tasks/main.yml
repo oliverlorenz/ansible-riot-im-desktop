@@ -10,3 +10,12 @@
     url: https://packages.riot.im/riot-release-key.asc
     state: present
   become: yes
+
+- apt_repository:
+    repo: deb https://packages.riot.im/debian/ {{ ansible_distribution_release }} main
+    state: present
+
+- apt:
+    pkg:
+    - riot-web
+    update_cache: yes
