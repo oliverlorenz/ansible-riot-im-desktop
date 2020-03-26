@@ -7,5 +7,5 @@
   become: yes
 
 - apt_key:
-    url: https://packages.riot.im/debian/riot-im-archive-keyring.gpg
+    url: https://packages.riot.im/riot-release-key.asc
     state: present
